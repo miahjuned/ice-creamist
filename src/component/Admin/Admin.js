@@ -17,7 +17,7 @@ const Admin = () => {
             wight: data.wight,
             imageURL: imageURLS
         };
-        const url = `http://localhost:5000/addProduct`;
+        const url = `https://fierce-coast-48195.herokuapp.com/addProduct`;
 
         console.log(productData)
         fetch(url, {
