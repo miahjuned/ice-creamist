@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
 import Product from '../Product/Product';
-
+import './Home.css'
 const Home = () => {
     const [product, setProduct] = useState([]);
 
@@ -14,7 +14,13 @@ const Home = () => {
         <Container>
             <Row>
                 {
-                    product.map(product => <Product product={product}></Product>)
+                    product.length === 0 && <div className="spinner-border text-info spiner" role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                }
+                
+                {
+                    product.map(product => <Product key={product.key} product={product}></Product>)
                 }
             </Row>
             

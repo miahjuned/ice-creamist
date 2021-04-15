@@ -1,0 +1,10 @@
+.navbarItem{
+    color: white;
+    font-size: 20px;
+    border-left: 1px solid lightgray;
+    padding-left: 10px;
+}
+.navbarItem:hover{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
