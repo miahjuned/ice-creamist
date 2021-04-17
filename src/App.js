@@ -1,11 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
 import Admin from './component/Admin/Admin';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 import Home from './component/Home/Home';
 import Navbar from './component/Navbar/Navbar';
@@ -14,6 +12,7 @@ import Login from './component/Login/Login';
 import { createContext, useState } from 'react';
 import Order from './component/Order/Order';
 import Deals from './component/Deals/Deals';
+import PrivateRoute from './component/Private Route/PrivateRoute';
 
 export const userContext = createContext();
 
@@ -22,6 +21,7 @@ function App() {
   
   return (
     <userContext.Provider value ={[loggedInUser, setLoggedInUser]}>
+      <h2>email: {loggedInUser.email}</h2>
       <Router className="App">
         <Navbar></Navbar>
         <Switch>
@@ -37,16 +37,16 @@ function App() {
             <Deals></Deals>
           </Route>
 
-          <Route path="/order">
+          <PrivateRoute path="/order">
             <Order></Order>
-          </Route>
+          </PrivateRoute>
           
-          <Route path="/admin">
+          <PrivateRoute path="/admin">
             <Admin></Admin>
-          </Route>
-          <Route path="/checkout/:_id">
+          </PrivateRoute>
+          <PrivateRoute path="/checkout/:_id">
             <CheckOut></CheckOut>
-          </Route>
+          </PrivateRoute>
           <Route path="/">
             <Home></Home>
           </Route>

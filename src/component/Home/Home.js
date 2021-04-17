@@ -15,7 +15,7 @@ const Home = () => {
             <Row>
                 {
                     product.length === 0 && <div className="spinner-border text-info spiner" role="status">
-                    <span class="sr-only">Loading...</span>
+                    <span className="sr-only">Loading...</span>
                   </div>
                 }
                 
